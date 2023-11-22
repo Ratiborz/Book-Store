@@ -1,1 +1,0 @@
-export let her = console.log('hello world!')
