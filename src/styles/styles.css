@@ -1,3 +1,58 @@
-body {
-  background-color: red;
+h1, p {
+  margin: 0;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-top: 47px;
+  padding-bottom: 40px;
+}
+
+.h1-name {
+  color: var(--text-black, #1C2A39);
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  max-width: 372px;
+  width: 100%;
+  color: var(--text-gray, #5C6A79);
+  font-family: Montserrat;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.menu p:first-child {
+  color: var(--text-black, #1C2A39);
+  font-weight: 900;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 120px;
+  width: 100%;
+}
+
+.container-main {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.banner-01 {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=styles.css.map */
