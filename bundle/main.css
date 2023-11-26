@@ -57,5 +57,7 @@ h1, p {
 
 .banner-01 {
   width: 100%;
-  height: auto;
+  height: 705px;
+  background-image: url(9830f246fe1660ce4ffc.png);
+  background-size: cover;
 }
