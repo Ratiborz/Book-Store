@@ -1,4 +1,4 @@
-h1, p
+h1, p, h3
   margin: 0
   
 .container-header
@@ -8,7 +8,7 @@ h1, p
   max-width: 1120px
   margin: 0 auto
   padding-top: 47px
-  padding-bottom: 40px 
+  padding-bottom: 43px 
 
 .h1-name 
   color: var(--text-black, #1C2A39)
@@ -17,6 +17,7 @@ h1, p
   font-style: normal
   font-weight: 700
   line-height: normal
+  cursor: pointer
 
 .menu
   display: flex
@@ -31,6 +32,9 @@ h1, p
   line-height: normal
   text-transform: uppercase
 
+.menu p
+  cursor: pointer
+
 .menu p:first-child 
   color: var(--text-black, #1C2A39)
   font-weight: 900
@@ -41,12 +45,209 @@ h1, p
   max-width: 120px
   width: 100%
 
+.icons img 
+  cursor: pointer
+
 .container-main 
   max-width: 1120px
   margin: 0 auto
+  position: relative
 
 .banner-01 
   width: 100%
-  height: 705px
-  background-image: url(/src/images/banner-01.png)
-  background-size: cover
+
+.promo-01 
+  width: 149px
+  height: 204px
+  background: #9E98DC
+  position: absolute
+  left: 1057px
+  top: 79px
+
+.promo-01__p,
+.promo-02__p
+  color: var(--text-black, #1C2A39)
+  font-family: Montserrat
+  font-size: 18px
+  font-style: normal
+  font-weight: 700
+  line-height: normal
+  text-transform: uppercase
+  padding-top: 102px
+  max-width: 109px
+  margin: 0 auto
+
+.promo-02__p
+  padding-top: 149px
+  max-width: 69px
+  margin-left: 21px
+
+.promo-01__img,
+.promo-02__img
+  display: block
+  padding-top: 5px
+  margin-left: 20px
+  cursor: pointer
+
+.promo-02__img
+  margin-left: 21px
+
+.promo-02 
+  width: 137px
+  height: 273px 
+  background: #FF8FE6
+  position: absolute
+  left: 1143px
+  top: 360px
+
+.slider-dots
+  display: flex
+  max-width: 56px
+  justify-content: space-between
+  margin: 0 auto
+  margin-top: 17px 
+  margin-bottom: 105px
+
+.slider-dots__dot-1, 
+.slider-dots__dot-2, 
+.slider-dots__dot-3
+  width: 12px
+  height: 12px
+  border-radius: 50%
+  background-color: #EFEEF6
+  cursor: pointer
+
+.slider-dots__dot-1
+  background-color: #9E98DC
+
+.book-cards
+  display: grid
+  width: 100%
+  grid-template-columns: repeat(2, 424px)
+  grid-template-rows: repeat(3, 300px)
+  row-gap: 96px
+  column-gap: 76px
+  justify-content: end
+  margin-bottom: 84px
+
+.book-card  
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-column: 1
+  grid-row: 1
+
+.book-card-info
+  padding-top: 49px
+  padding-left: 36px
+
+.book-card-info__author
+  color: var(--text-gray, #5C6A79)
+  font-family: Open Sans
+  font-size: 10px
+  font-weight: 400
+  line-height: normal
+  text-transform: capitalize
+  margin-bottom: 4px
+
+.book-card-info__book-name
+  color: var(--text-black, #1C2A39)
+  font-family: Montserrat
+  font-size: 16px
+  font-style: normal
+  font-weight: 700
+  line-height: normal
+  margin-bottom: 5px
+
+.book-card-info__rating
+  display: flex
+  align-items: center
+  margin-bottom: 16px
+
+.reviews
+  color: var(--text-gray, #5C6A79)
+  font-family: Open Sans
+  font-size: 10px
+  font-style: normal
+  font-weight: 400
+  line-height: normal
+  margin-left: 6px
+
+.book-card-info__description
+  color: var(--text-gray, #5C6A79)
+  font-family: Open Sans
+  font-size: 10px
+  font-style: normal
+  font-weight: 400
+  line-height: normal
+  text-transform: capitalize
+  margin-bottom: 16px
+
+.book-card-info__price
+  display: inline-block
+  color: var(--text-black, #1C2A39)
+  font-family: Montserrat
+  font-size: 13px
+  font-style: normal
+  font-weight: 700
+  line-height: normal
+  text-transform: uppercase
+  margin-bottom: 16px
+
+.book-card-info__button
+  color: #4C3DB2
+  font-family: Montserrat
+  font-size: 8px
+  font-style: normal
+  font-weight: 700
+  line-height: normal
+  text-transform: uppercase
+  padding: 18px 66px 18px 66px
+  border: 1px solid #4C3DB2
+  background: #FFF
+  cursor: pointer
+
+.book-card-02
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-column: 2
+  grid-row: 1
+
+.book-card-03
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-column: 1
+  grid-row: 2
+
+.book-card-04
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-column: 2
+  grid-row: 2
+
+.book-card-05
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-column: 1
+  grid-row: 3
+
+.book-card-06
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-column: 2
+  grid-row: 3
+
+.load-more__btn
+  display: flex
+  color: #4C3DB2
+  font-family: Montserrat
+  font-size: 8px
+  font-style: normal
+  font-weight: 700
+  line-height: normal
+  text-transform: uppercase
+  border: 1px solid #4C3DB2
+  background: #FFF
+  cursor: pointer
+  padding: 18px 62px
+  margin-left: 579px
+  margin-bottom: 74px
