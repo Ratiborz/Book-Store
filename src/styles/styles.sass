@@ -1,5 +1,9 @@
-h1, p, h3
+h1, p, h3, ul
   margin: 0
+  padding: 0
+
+li 
+  list-style-type: none
   
 .container-header
   display: flex
@@ -122,19 +126,22 @@ h1, p, h3
 
 .book-cards
   display: grid
+  position: relative
   width: 100%
   grid-template-columns: repeat(2, 424px)
   grid-template-rows: repeat(3, 300px)
-  row-gap: 96px
+  row-gap: 95px
   column-gap: 76px
   justify-content: end
   margin-bottom: 84px
+  padding-top: 50px
 
 .book-card  
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-column: 1
   grid-row: 1
+  z-index: 1
 
 .book-card-info
   padding-top: 49px
@@ -211,30 +218,35 @@ h1, p, h3
   grid-template-columns: repeat(2, 1fr)
   grid-column: 2
   grid-row: 1
+  z-index: 1
 
 .book-card-03
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-column: 1
   grid-row: 2
+  z-index: 1
 
 .book-card-04
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-column: 2
   grid-row: 2
+  z-index: 1
 
 .book-card-05
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-column: 1
   grid-row: 3
+  z-index: 1
 
 .book-card-06
   display: grid
   grid-template-columns: repeat(2, 1fr)
   grid-column: 2
   grid-row: 3
+  z-index: 1
 
 .load-more__btn
   display: flex
@@ -251,3 +263,42 @@ h1, p, h3
   padding: 18px 62px
   margin-left: 579px
   margin-bottom: 74px
+
+.aside 
+  position: absolute
+  max-width: 416px
+  background: #EFEEF6
+  padding: 45px 138px 81px 160px
+  z-index: 0
+  left: -160px
+
+.list
+  font-family: Montserrat
+
+.list__item
+  color: var(--text-gray, #5C6A79)
+  font-size: 12px
+  font-style: normal
+  font-weight: 500
+  line-height: normal
+  text-transform: capitalize
+  margin-bottom: 23px
+  cursor: pointer
+  position: relative
+
+.list__item:last-child
+  margin-bottom: 0px
+
+.list__item-active
+  color: var(--text-black, #1C2A39)
+  font-size: 16px
+  font-weight: 700
+
+.active-point
+  width: 6px
+  height: 6px
+  border-radius: 50%
+  background: #756AD3 
+  position: absolute
+  left: -17px
+  top: 6px
