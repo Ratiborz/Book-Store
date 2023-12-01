@@ -16,7 +16,7 @@ module.exports = {
               }),
     ],
 
-    entry: path.resolve(__dirname, 'src/JS', 'index.js'),
+    entry: path.resolve(__dirname, 'src/TS', 'index.ts'),
     output: {
         path: path.resolve(__dirname, 'bundle'),
         filename: 'main.js',
@@ -33,8 +33,18 @@ module.exports = {
               options: {
                 pretty: true
               }  
-            }
+            },
+
+            {
+              test: /\.tsx?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/,
+            },
         ],
+    },
+
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
     },
 
     optimization: {

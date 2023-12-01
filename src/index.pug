@@ -22,7 +22,7 @@ html(lang='en')
           img(src="/src/images/shop-bag.svg", alt="shop-bar")
     main 
       .container-main 
-        img.banner-01(src="/src/images/banner-01.png", alt="banner-01")
+        img.banner-01#banner(src="/src/images/banner-01.png", alt="banner-01")
         .promo-01 
           p.promo-01__p Change old book on new
           img.promo-01__img(src="/src/images/arrow-right.svg", alt="arrow-right")
@@ -30,7 +30,7 @@ html(lang='en')
           p.promo-02__p top 100 books 2022
           img.promo-02__img(src="/src/images/arrow-right.svg", alt="arrow-right")
         .slider-dots
-          .slider-dots__dot-1 
+          .slider-dots__dot-1.active-dot
           .slider-dots__dot-2 
           .slider-dots__dot-3
         .book-cards 
@@ -144,5 +144,3 @@ html(lang='en')
               span.book-card-info__price $12.35
               button.book-card-info__button buy now
         button.load-more__btn Load more
-
-    script(src='/bundle/main.js' type='module')

@@ -140,7 +140,7 @@ li {
   cursor: pointer;
 }
 
-.slider-dots__dot-1 {
+.active-dot {
   background-color: #9E98DC;
 }
 
