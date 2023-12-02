@@ -8,25 +8,30 @@ html(lang='en')
     link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600;700;900&family=Open+Sans&display=swap" rel="stylesheet")
     link(rel='stylesheet' type='text/css' href='/bundle/main.css')
   body
-    header 
+    header.header 
       .container-header 
         h1.h1-name Bookshop
         .menu 
-          p Books
-          p audiobooks
-          p Stationery & gifts
-          p blog
+           
+            a(href="#").menu__p Books
+           
+            a(href="#").menu__p audiobooks
+            
+            a(href="#").menu__p Stationery & gifts
+            
+            a(href="#").menu__p blog
+            
         .icons 
           img(src="/src/images/user.svg" alt="user")
           img(src="/src/images/search.svg", alt="search")
           img(src="/src/images/shop-bag.svg", alt="shop-bar")
-    main 
+    main.main 
       .container-main 
         img.banner-01#banner(src="/src/images/banner-01.png", alt="banner-01")
         .promo-01 
           p.promo-01__p Change old book on new
           img.promo-01__img(src="/src/images/arrow-right.svg", alt="arrow-right")
-        .promo-02 
+        .promo-02
           p.promo-02__p top 100 books 2022
           img.promo-02__img(src="/src/images/arrow-right.svg", alt="arrow-right")
         .slider-dots

@@ -20,6 +20,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./src/TS/apiRequests.ts":
+/*!*******************************!*\
+  !*** ./src/TS/apiRequests.ts ***!
+  \*******************************/
+/***/ (() => {
+
+eval("var loadMoreBtn = document.querySelector('.load-more__btn');\n\n\n//# sourceURL=webpack://book-store/./src/TS/apiRequests.ts?");
+
+/***/ }),
+
 /***/ "./src/TS/index.ts":
 /*!*************************!*\
   !*** ./src/TS/index.ts ***!
@@ -27,7 +37,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.sass */ \"./src/styles/styles.sass\");\n/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slider */ \"./src/TS/slider.ts\");\n/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_slider__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n\n//# sourceURL=webpack://book-store/./src/TS/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.sass */ \"./src/styles/styles.sass\");\n/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slider */ \"./src/TS/slider.ts\");\n/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_slider__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _apiRequests_ts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./apiRequests.ts */ \"./src/TS/apiRequests.ts\");\n/* harmony import */ var _apiRequests_ts__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_apiRequests_ts__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n\n//# sourceURL=webpack://book-store/./src/TS/index.ts?");
 
 /***/ }),
 
@@ -37,7 +47,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \**************************/
 /***/ (() => {
 
-eval("var dots = document.querySelectorAll('.slider-dots');\nvar banner = document.getElementById('banner');\nvar activeSlideIndex = 0;\ndots.forEach(function (dot) {\n    var bannerSrcOne = '/src/images/banner-01.png';\n    var bannerSrcTwo = '/src/images/banner-02.svg';\n    var bannerSrcThree = '/src/images/banner-03.svg';\n    dot.addEventListener('click', function (event) {\n        var dotObj = event.target;\n        console.log(dotObj.classList);\n        if (dotObj.classList.contains('slider-dots__dot-1')) {\n            clearActiveEllipse();\n            banner.src = bannerSrcOne;\n            dotObj.classList.add('active-dot');\n        }\n        if (dotObj.classList.contains('slider-dots__dot-2')) {\n            clearActiveEllipse();\n            banner.src = bannerSrcTwo;\n            dotObj.classList.add('active-dot');\n        }\n        if (dotObj.classList.contains('slider-dots__dot-3')) {\n            clearActiveEllipse();\n            banner.src = bannerSrcThree;\n            dotObj.classList.add('active-dot');\n        }\n    });\n});\nfunction clearActiveEllipse() {\n    dots.forEach(function (dot) {\n        console.log(dot);\n        dot.classList.remove('active-dot');\n    });\n}\n;\n\n\n//# sourceURL=webpack://book-store/./src/TS/slider.ts?");
+eval("var dots = document.querySelectorAll('.slider-dots');\nvar dot01 = document.querySelector('.slider-dots__dot-1');\nvar dot02 = document.querySelector('.slider-dots__dot-2');\nvar dot03 = document.querySelector('.slider-dots__dot-3');\nvar banner = document.getElementById('banner');\nvar bannerSrcOne = '/src/images/banner-01.png';\nvar bannerSrcTwo = '/src/images/banner-02.svg';\nvar bannerSrcThree = '/src/images/banner-03.svg';\nvar activeSlideIndex = 1;\ndots.forEach(function (dot) {\n    dot.addEventListener('click', function (event) {\n        var dotObj = event.target;\n        console.log(dotObj);\n        if (dotObj.classList.contains('slider-dots__dot-1')) {\n            banner.src = bannerSrcOne;\n            clearActiveEllipse();\n            activeSlideIndex = 1;\n            dotObj.classList.add('active-dot');\n        }\n        if (dotObj.classList.contains('slider-dots__dot-2')) {\n            banner.src = bannerSrcTwo;\n            clearActiveEllipse();\n            activeSlideIndex = 2;\n            dotObj.classList.add('active-dot');\n        }\n        if (dotObj.classList.contains('slider-dots__dot-3')) {\n            banner.src = bannerSrcThree;\n            clearActiveEllipse();\n            activeSlideIndex = 3;\n            dotObj.classList.add('active-dot');\n        }\n    });\n});\nfunction autoSwitchSlide() {\n    if (activeSlideIndex === 1) {\n        banner.src = bannerSrcTwo;\n        clearActiveEllipse();\n        dot02.classList.add('active-dot');\n        activeSlideIndex = 2;\n    }\n    else if (activeSlideIndex === 2) {\n        banner.src = bannerSrcThree;\n        clearActiveEllipse();\n        dot03.classList.add('active-dot');\n        activeSlideIndex = 3;\n    }\n    else if (activeSlideIndex === 3) {\n        banner.src = bannerSrcOne;\n        clearActiveEllipse();\n        dot01.classList.add('active-dot');\n        activeSlideIndex = 1;\n    }\n}\nsetInterval(autoSwitchSlide, 5000);\nfunction clearActiveEllipse() {\n    dot01.classList.remove('active-dot');\n    dot02.classList.remove('active-dot');\n    dot03.classList.remove('active-dot');\n}\n;\n\n\n//# sourceURL=webpack://book-store/./src/TS/slider.ts?");
 
 /***/ })
 

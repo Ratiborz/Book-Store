@@ -1,0 +1,1 @@
+const loadMoreBtn:HTMLElement = document.querySelector('.load-more__btn')!;

@@ -3,8 +3,17 @@ h1, p, h3, ul {
   padding: 0;
 }
 
-li {
+li, a {
   list-style-type: none;
+  text-decoration: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: #FFF;
 }
 
 .container-header {
@@ -32,6 +41,9 @@ li {
   justify-content: space-between;
   max-width: 372px;
   width: 100%;
+}
+
+.menu__p {
   color: var(--text-gray, #5C6A79);
   font-family: Montserrat;
   font-size: 10px;
@@ -41,11 +53,7 @@ li {
   text-transform: uppercase;
 }
 
-.menu p {
-  cursor: pointer;
-}
-
-.menu p:first-child {
+.menu__p:first-child {
   color: var(--text-black, #1C2A39);
   font-weight: 900;
 }
@@ -59,6 +67,10 @@ li {
 
 .icons img {
   cursor: pointer;
+}
+
+.main {
+  padding-top: 116px;
 }
 
 .container-main {

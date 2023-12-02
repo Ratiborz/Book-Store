@@ -2,9 +2,17 @@ h1, p, h3, ul
   margin: 0
   padding: 0
 
-li 
+li, a
   list-style-type: none
-  
+  text-decoration: none
+
+.header 
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 10
+  background: #FFF
+
 .container-header
   display: flex
   justify-content: space-between
@@ -12,7 +20,7 @@ li
   max-width: 1120px
   margin: 0 auto
   padding-top: 47px
-  padding-bottom: 43px 
+  padding-bottom: 43px
 
 .h1-name 
   color: var(--text-black, #1C2A39)
@@ -23,11 +31,13 @@ li
   line-height: normal
   cursor: pointer
 
-.menu
+.menu 
   display: flex
   justify-content: space-between
   max-width: 372px
   width: 100%
+
+.menu__p 
   color: var(--text-gray, #5C6A79)
   font-family: Montserrat
   font-size: 10px
@@ -36,10 +46,7 @@ li
   line-height: normal
   text-transform: uppercase
 
-.menu p
-  cursor: pointer
-
-.menu p:first-child 
+.menu__p:first-child
   color: var(--text-black, #1C2A39)
   font-weight: 900
 
@@ -51,6 +58,9 @@ li
 
 .icons img 
   cursor: pointer
+
+.main 
+  padding-top: 116px
 
 .container-main 
   max-width: 1120px
