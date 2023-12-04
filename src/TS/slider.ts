@@ -14,7 +14,6 @@ dots.forEach((dot) => {
 
     dot.addEventListener('click', (event) => {
         const dotObj:HTMLElement = event.target as HTMLElement;
-        console.log(dotObj)
 
         if (dotObj.classList.contains('slider-dots__dot-1')) {
             banner.src = bannerSrcOne;
