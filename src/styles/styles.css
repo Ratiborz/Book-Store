@@ -327,8 +327,9 @@ li, a {
 .aside {
   position: absolute;
   max-width: 416px;
+  width: 163px;
   background: #EFEEF6;
-  padding: 45px 138px 81px 160px;
+  padding: 45px 98px 81px 160px;
   z-index: 0;
   left: -160px;
 }
@@ -359,6 +360,15 @@ li, a {
   font-weight: 700;
 }
 
+.no-rating {
+  color: var(--text-gray, #5C6A79);
+  font-family: Montserrat;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .active-point {
   width: 6px;
   height: 6px;
@@ -367,4 +377,26 @@ li, a {
   position: absolute;
   left: -17px;
   top: 6px;
+}
+
+.container-basket {
+  position: relative;
+}
+
+.active-basket {
+  background-color: #FF353A;
+  border-radius: 50%;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  width: 13px;
+  height: 13px;
+  text-align: center;
+  position: absolute;
+  left: 3px;
+  top: 7px;
 }/*# sourceMappingURL=styles.css.map */

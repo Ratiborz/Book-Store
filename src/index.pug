@@ -24,7 +24,9 @@ html(lang='en')
         .icons 
           img(src="/src/images/user.svg" alt="user")
           img(src="/src/images/search.svg", alt="search")
-          img(src="/src/images/shop-bag.svg", alt="shop-bar")
+          a.container-basket
+            img(src="/src/images/shop-bag.svg", alt="shop-bar")
+          <!-- span.active-basket -->
     main.main 
       .container-main 
         img.banner-01#banner(src="/src/images/banner-01.png", alt="banner-01")
@@ -58,7 +60,7 @@ html(lang='en')
               li.list__item Science
               li.list__item Technology
               li.list__item Travel & Maps
-          .book-card 
+          .book-card(data-index="0")
             img.book-card__main-photo(src="/src/images/crazy-rich-asians.png", alt="crazy-rich-asians")
             .book-card-info
               p.book-card-info__author Kevin Kwan
@@ -72,8 +74,8 @@ html(lang='en')
                 span.reviews 252 review
               p.book-card-info__description the outrageously funny debut novel about three super-rich, pedigreed Chinese families and the gossip...
               span.book-card-info__price $4.99
-              button.book-card-info__button buy now
-          .book-card-02 
+              button.book-card-info__button(data-index="0") buy now
+          .book-card-02(data-index="1") 
             img.book-card__main-photo(src="/src/images/the-handmaids-tale.png", alt="the-handmaids-tale")
             .book-card-info
               p.book-card-info__author Margaret Atwood
@@ -87,8 +89,8 @@ html(lang='en')
                 span.reviews 1,1M review
               p.book-card-info__description This novel can be interpreted as a double narrative, Offred's tale and the handmaids' tales. The night...
               span.book-card-info__price $6.99
-              button.book-card-info__button buy now
-          .book-card-03 
+              button.book-card-info__button(data-index="1") buy now
+          .book-card-03(data-index="2")
             img.book-card__main-photo(src="/src/images/brave-new-world.png", alt="brave-new-world")
             .book-card-info
               p.book-card-info__author Aldous Huxley
@@ -102,8 +104,8 @@ html(lang='en')
                 span.reviews 1,3M review
               p.book-card-info__description dystopian novel written in 1931 by English author Aldous Huxley, and published in 1932. Largely set in...
               span.book-card-info__price $12.43
-              button.book-card-info__button buy now
-          .book-card-04
+              button.book-card-info__button(data-index="2") buy now
+          .book-card-04(data-index="3")
             img.book-card__main-photo(src="/src/images/educated.png", alt="educated")
             .book-card-info
               p.book-card-info__author Tara Westover
@@ -117,8 +119,8 @@ html(lang='en')
                 span.reviews 364 review
               p.book-card-info__description It is a tale of fierce family loyalty and of the grief that comes with severing the closest of ties. With...
               span.book-card-info__price $12.68
-              button.book-card-info__button buy now
-          .book-card-05
+              button.book-card-info__button(data-index="3") buy now
+          .book-card-05(data-index="4")
             img.book-card__main-photo(src="/src/images/the-weight-of-things.png", alt="the-weight-of-things")
             .book-card-info
               p.book-card-info__author Marianne Fritz
@@ -132,8 +134,8 @@ html(lang='en')
                 span.reviews 353 review
               p.book-card-info__description You discover not an eccentric fluke of literary nature but rather a brilliant and masterful satiris...
               span.book-card-info__price $18.23
-              button.book-card-info__button buy now
-          .book-card-06
+              button.book-card-info__button(data-index="4") buy now
+          .book-card-06(data-index="5")
             img.book-card__main-photo(src="/src/images/mothers-stories.png", alt="mothers-stories")
             .book-card-info
               p.book-card-info__author Chris Power
@@ -147,5 +149,5 @@ html(lang='en')
                 span.reviews 454 review
               p.book-card-info__description the stories in Mothers lay bare the emotional and psychic damage of life, love, and abandonment...
               span.book-card-info__price $12.35
-              button.book-card-info__button buy now
+              button.book-card-info__button(data-index="5") buy now
         button.load-more__btn Load more
