@@ -4,7 +4,6 @@ import { descriptionProcessing, authorsProcessing, ratingProcessing, cleanPastCa
 const loadMoreBtn: HTMLElement = document.querySelector('.load-more__btn')!;
 const bookCard: HTMLElement = document.querySelector('.book-cards')!;
 const categoryList: NodeListOf<Element> = document.querySelectorAll('.list__item')!;
-const buyBtn: NodeListOf<Element> = document.querySelectorAll('.book-card-info__button')!;
 
 let subject: string = '';
 let startIndex: number = 0;
@@ -60,7 +59,6 @@ async function drawBookCard() {
     const data: BookVolume = await apiRequests();
     const dataItems = data.items;
     let out: string = '';
-    console.log(dataItems);
 
     dataItems.forEach(function (item: BookItem, commentIndex: number) {
         out += `<div class="book-card__universal" data-index="${commentIndex + 6}">
@@ -97,22 +95,32 @@ async function drawBookCard() {
 
     bookCard.insertAdjacentHTML('beforeend', out);
     startIndex += 6;
+    addBtnListener();
 }
 
-buyBtn.forEach((btn) => {
+addBtnListener();
 
-    btn.addEventListener('click', (event) => {
-        const btnObj: HTMLElement = event.target as HTMLElement;
+function addBtnListener() {
+    const buyBtn: NodeListOf<Element> = document.querySelectorAll('.book-card-info__button')!;
 
-        if (btnObj.textContent === 'In the Cart') {
-            btnObj.innerText = 'buy now'
-            deleteBookFromBasket(btnObj);
-        }else {
-            btnObj.innerText = 'In the Cart';
-            addBookInBasket(btnObj);
-        }
+    buyBtn.forEach((btn) => {
+    
+        btn.addEventListener('click', (event) => {
+            const btnObj: HTMLElement = event.target as HTMLElement;
+            console.log(btnObj)
+    
+            if (btnObj.textContent === 'In the Cart') {
+                btnObj.innerText = 'buy now';
+                deleteBookFromBasket(btnObj);
+                totalCountBooks();
+            }else {
+                btnObj.innerText = 'In the Cart';
+                addBookInBasket(btnObj);
+                totalCountBooks();
+            }
+        })
     })
-})
+}
 
 function addBookInBasket(btnObj: HTMLElement) {
     const bookCard = btnObj.parentNode.parentNode;
@@ -136,29 +144,32 @@ function addBookInBasket(btnObj: HTMLElement) {
         description: bookDescription.textContent,
         imageLinks: bookImageLinks
     } 
+
     books.push(book);
-    console.log(books)
-    totalCountBooks();
+    console.log(books);
 }
 
 function deleteBookFromBasket(btnObj: HTMLElement) {
-    const bookCard = btnObj.parentNode.parentNode;
+    const dataIndex = parseInt(btnObj.getAttribute('data-index'), 10);
+    const indexToDelete = books.findIndex(book => book.dataIndex === dataIndex); 
 
-    const dataIndex = btnObj.getAttribute('data-index');
-
-
-
+    books.splice(indexToDelete, 1);
+    console.log(books);
 }
 
 function totalCountBooks() {
-    const containerCount:HTMLElement = document.querySelector('.container-basket')!;
-    const totalCount = document.createElement('span');
+    const containerCount: HTMLElement = document.querySelector('.container-basket')!;
+    let totalCount: HTMLElement | null = containerCount.querySelector('.active-basket');
+    let booksCount = books.length;
 
-    if (books.length > 0) {
-        totalCount.classList.add('active-basket');
-        containerCount.appendChild(totalCount);
-    }
-    else if (books.length === 0) {
-        totalCount.remove()
+    if (booksCount >= 1) {
+        if (!totalCount) {
+            totalCount = document.createElement('span');
+            totalCount.classList.add('active-basket');
+            containerCount.appendChild(totalCount);
+        }
+        totalCount.textContent = booksCount.toString();
+    } else if (totalCount) {
+        totalCount.remove();
     }
 }
