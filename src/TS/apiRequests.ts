@@ -1,15 +1,16 @@
 import './interfaces';
+import { addBookInBasket, deleteBookFromBasket, totalCountBooks } from './BookInBasket';
 import { descriptionProcessing, authorsProcessing, ratingProcessing, cleanPastCategory, clearActiveCategory } from './utils';
 
 const loadMoreBtn: HTMLElement = document.querySelector('.load-more__btn')!;
 const bookCard: HTMLElement = document.querySelector('.book-cards')!;
 const categoryList: NodeListOf<Element> = document.querySelectorAll('.list__item')!;
 
-let subject: string = '';
-let startIndex: number = 0;
+export let subject: string = '';
+export let startIndex: number = 0;
 
-let books: { 
-    dataIndex: number,
+export let books: { 
+    dataIndex: string,
     authors: string, 
     title: string, 
     averageRating: NodeListOf<Element>, 
@@ -17,6 +18,18 @@ let books: {
     description: string, 
     imageLinks: Element
 }[] = [];
+
+loadBooks();
+
+function loadBooks() {
+    const storedBooks = localStorage.getItem('books');
+    if (storedBooks) {
+        books = JSON.parse(storedBooks);
+    }
+    drawBookCard();
+    totalCountBooks();
+    console.log(books)
+}
 
 loadMoreBtn.addEventListener('click', drawBookCard);
 
@@ -35,6 +48,9 @@ categoryList.forEach((category) => {
         subject = `subject:${categoryObj.textContent}`;
         startIndex = 0;
         cleanPastCategory();
+        drawBookCard();
+        books = [];
+        totalCountBooks();
     });
 });
 
@@ -55,13 +71,13 @@ async function apiRequests() {
     }
 }
 
-async function drawBookCard() {
+export async function drawBookCard() {
     const data: BookVolume = await apiRequests();
     const dataItems = data.items;
     let out: string = '';
 
-    dataItems.forEach(function (item: BookItem, commentIndex: number) {
-        out += `<div class="book-card__universal" data-index="${commentIndex + 6}">
+    dataItems.forEach(function (item: BookItem) {
+        out += `<div class="book-card__universal" data-index="${item.id}">
         <img class="book-card__main-photo" 
         src="${
             item.volumeInfo?.imageLinks?.thumbnail
@@ -72,7 +88,9 @@ async function drawBookCard() {
         <p class="book-card-info__author">
         ${item.volumeInfo?.authors ? authorsProcessing(item.volumeInfo?.authors) : 'No authors available'}
         </p>
-        <h3 class="book-card-info__book-name">${item.volumeInfo.title}</h3>
+        <h3 class="book-card-info__book-name">${item.volumeInfo?.title
+            ? descriptionProcessing(item.volumeInfo.title)
+            : 'No title'}</h3>
         <div class="book-card-info__rating"> 
         ${
             item.volumeInfo?.averageRating
@@ -88,88 +106,28 @@ async function drawBookCard() {
         <span class="book-card-info__price">${
             typeof item.saleInfo?.retailPrice === 'number' ? item.saleInfo.retailPrice : '12.35$'
         }</span>
-        <button class="book-card-info__button" data-index="${commentIndex + 6}">buy now</button>
+        <button class="book-card-info__button" data-index="${item.id}">buy now</button>
         </div>
     </div>`;
     });
 
     bookCard.insertAdjacentHTML('beforeend', out);
-    startIndex += 6;
-    addBtnListener();
+    startIndex += 7;
 }
 
-addBtnListener();
+document.addEventListener('click', (event) => {
+    const btnObj: HTMLElement = event.target as HTMLElement;
 
-function addBtnListener() {
-    const buyBtn: NodeListOf<Element> = document.querySelectorAll('.book-card-info__button')!;
+    if (btnObj.classList.contains('book-card-info__button')) {
 
-    buyBtn.forEach((btn) => {
-    
-        btn.addEventListener('click', (event) => {
-            const btnObj: HTMLElement = event.target as HTMLElement;
-            console.log(btnObj)
-    
-            if (btnObj.textContent === 'In the Cart') {
-                btnObj.innerText = 'buy now';
-                deleteBookFromBasket(btnObj);
-                totalCountBooks();
-            }else {
-                btnObj.innerText = 'In the Cart';
-                addBookInBasket(btnObj);
-                totalCountBooks();
-            }
-        })
-    })
-}
-
-function addBookInBasket(btnObj: HTMLElement) {
-    const bookCard = btnObj.parentNode.parentNode;
-
-    const dataIndex = parseInt(btnObj.getAttribute('data-index'), 10);
-
-    const bookAuthors = bookCard.querySelector('.book-card-info__author');
-    const bookTitle = bookCard.querySelector('.book-card-info__book-name');
-    const bookAverRating = bookCard.querySelectorAll('.star');
-    const bookRatingCount = bookCard.querySelector('.reviews');
-    const bookDescription = bookCard.querySelector('.book-card-info__description');
-    const bookImageLinks = bookCard.querySelector('.book-card__main-photo');
-    console.log(dataIndex);
-
-    let book = {
-        dataIndex: dataIndex,
-        authors: bookAuthors.textContent,
-        title: bookTitle.textContent,
-        averageRating: bookAverRating,
-        ratingsCount: bookRatingCount,
-        description: bookDescription.textContent,
-        imageLinks: bookImageLinks
-    } 
-
-    books.push(book);
-    console.log(books);
-}
-
-function deleteBookFromBasket(btnObj: HTMLElement) {
-    const dataIndex = parseInt(btnObj.getAttribute('data-index'), 10);
-    const indexToDelete = books.findIndex(book => book.dataIndex === dataIndex); 
-
-    books.splice(indexToDelete, 1);
-    console.log(books);
-}
-
-function totalCountBooks() {
-    const containerCount: HTMLElement = document.querySelector('.container-basket')!;
-    let totalCount: HTMLElement | null = containerCount.querySelector('.active-basket');
-    let booksCount = books.length;
-
-    if (booksCount >= 1) {
-        if (!totalCount) {
-            totalCount = document.createElement('span');
-            totalCount.classList.add('active-basket');
-            containerCount.appendChild(totalCount);
+        if (btnObj.textContent === 'In the Cart') {
+            btnObj.innerText = 'buy now';
+            deleteBookFromBasket(btnObj);
+            totalCountBooks();
+        }else {
+            btnObj.innerText = 'In the Cart';
+            addBookInBasket(btnObj);
+            totalCountBooks();
         }
-        totalCount.textContent = booksCount.toString();
-    } else if (totalCount) {
-        totalCount.remove();
     }
-}
+})

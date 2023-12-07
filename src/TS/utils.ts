@@ -4,6 +4,9 @@ export function descriptionProcessing(description:string) {
     if (description.length > 85) {
         outDescription += description.slice(0, 86)
     }
+    if (description.length < 85) {
+        return description
+    }
 
     return `${outDescription}...`;
 }
@@ -15,7 +18,7 @@ export function authorsProcessing(authors: [string]) {
         authors.forEach((author) => {
             totalAuthors += `, ${author}`
         })
-        return totalAuthors;
+        return descriptionProcessing(totalAuthors);
     } else {
         return authors[0];
     }
