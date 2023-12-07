@@ -36,8 +36,6 @@ export function deleteBookFromBasket(btnObj: HTMLElement) {
     // Удаление книги из массива
     if (indexToDelete > -1) {
         books.splice(indexToDelete, 1);
-
-        // Обновление localStorage после удаления
         saveBooks();
     }
 

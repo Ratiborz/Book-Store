@@ -50,6 +50,7 @@ categoryList.forEach((category) => {
         cleanPastCategory();
         drawBookCard();
         books = [];
+        localStorage.clear();
         totalCountBooks();
     });
 });
