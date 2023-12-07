@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     plugins: [new MiniCssExtractPlugin(),
               new HtmlWebpackPlugin({
                 template: './src/index.pug',
